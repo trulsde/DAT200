@@ -1,0 +1,21 @@
+"""
+This is sort of a sketchy move, but I 
+""" 
+
+def binary_mapping(value):
+    return 1 if value > 0 else 0
+
+y = train_df["Scoville Heat Units (SHU)"].values
+X = train_df.drop("Scoville Heat Units (SHU)", axis=1).values
+
+train_df_gt0 = train_df[train_df["Scoville Heat Units (SHU)"] > 0]
+
+y_gt0 = train_df_gt0["Scoville Heat Units (SHU)"].values
+X_gt0 = train_df_gt0.drop("Scoville Heat Units (SHU)", axis=1).values
+
+X_train, X_dev, y_train, y_dev = train_test_split(X, y, train_size=0.7, random_state=42)
+
+y_train_binary = np.array([binary_mapping(value) for value in y_train])
+y_dev_binary = np.array([binary_mapping(value) for value in y_dev])
+
+X.size, X_gt0.size

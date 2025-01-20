@@ -1,0 +1,20 @@
+name: dat200_env
+channels:
+    - conda-forge
+dependencies:
+    - python=3.10.8
+    - pip
+    - pip:
+        # Deep learning packages
+        - scikit-learn
+        # Data representation and calculation
+        - numpy
+        - pandas
+        # Jupyter kernel
+        - IPython
+        - ipykernel
+        # Visualization
+        - matplotlib
+        - seaborn
+        - plotly
+        - mlxtend
